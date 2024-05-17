@@ -1,10 +1,12 @@
 from pydantic import BaseModel
 from datetime import date
 
+from artist import Artist
 
-class Movie2 (BaseModel):
+
+class MovieDetails (BaseModel):
     id: int
-    name: str
+    movie_name: str
     language: str
     certificate: str
     imdb_rating: float
@@ -15,3 +17,4 @@ class Movie2 (BaseModel):
     movie_duration: int
     release_date: date
     about: str
+    artists: list[Artist]

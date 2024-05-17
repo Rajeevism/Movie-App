@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 
-class Movie1 (BaseModel):
+class MovieSummary (BaseModel):
     id: int
     name: str
     language: str
