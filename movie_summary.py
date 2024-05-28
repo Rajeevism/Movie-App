@@ -3,10 +3,8 @@ from pydantic import BaseModel
 
 class MovieSummary (BaseModel):
     id: int
-    name: str
-    language: str
-    certificate: str
-    imdb_rating: float
     image_url: str
+    movie_name: str
+    certificate: str
     likes: int
-    label: str
+    languages: list  # type: ignore

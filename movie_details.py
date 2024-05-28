@@ -7,14 +7,19 @@ from artist import Artist
 class MovieDetails (BaseModel):
     id: int
     movie_name: str
-    language: str
+    language: list  # type: ignore
     certificate: str
     imdb_rating: float
     image_url: str
     likes: int
-    label: str
+    # label: str
     genre: str
     movie_duration: int
     release_date: date
     about: str
     artists: list[Artist]
+    user_name: str
+    reviews: str
+    rating: float
+    likes: int
+    review_date: date
