@@ -7,7 +7,7 @@ from artist import Artist
 class MovieDetails (BaseModel):
     id: int
     movie_name: str
-    language: list  # type: ignore
+    languages: list  # type: ignore
     certificate: str
     imdb_rating: float
     image_url: str
