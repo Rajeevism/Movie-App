@@ -12,7 +12,7 @@ class MovieDetails (BaseModel):
     imdb_rating: float
     image_url: str
     likes: int
-    # label: str
+    label: str
     genre: str
     movie_duration: int
     release_date: date
