@@ -11,6 +11,7 @@ class MovieDetails (BaseModel):
     certificate: str
     imdb_rating: float
     image_url: str
+    background_image: str
     likes: int
     label: str
     genre: str
