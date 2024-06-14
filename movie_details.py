@@ -19,8 +19,8 @@ class MovieDetails (BaseModel):
     release_date: date
     about: str
     artists: list[Artist]
-    user_name: str
-    reviews: str
-    rating: float
-    likes: int
-    review_date: date
+    # user_name: str
+    # reviews: str
+    # rating: float
+    # likes: int
+    # review_date: date
