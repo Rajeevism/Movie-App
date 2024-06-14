@@ -45,14 +45,11 @@ def get_all_movies():  # type: ignore
 @router.get(path="/{movie_id}", response_model=MovieDetails | dict[str, str])
 def get_movie_by_id(movie_id: str) -> MovieDetails | dict[str, str]:
     with connection.cursor() as cursor:
-        query = '''SELECT DISTINCT m.id, m.image_url, m.movie_name,m.certificate,m.imdb_rating,m.likes,
-	    g.genre,m.movie_duration,m.release_date,m.about,u.user_name,re.reviews,re.rating,re.likes,re.review_date
-		FROM movie_app_db.user_movie_review umr
-        INNER JOIN movie_app_db.movies m ON umr.movie_id = m.id
-		INNER JOIN movie_app_db.users u ON umr.user_id = u.id	
-        INNER JOIN movie_app_db.reviews re ON umr.review_id = re.id
-	    INNER JOIN movie_app_db.movie_genre as mg ON mg.movie_id=m.id
-	    INNER JOIN movie_app_db.genre as g  ON mg.genre_id=g.id
+        query = '''SELECT m.id,m.movie_name,m.certificate,m.imdb_rating,m.likes,m.image_url,m.background_image,g.genre,f.label,m.movie_duration,m.release_date,m.about
+        FROM movie_app_db.movies_genre_format as mgf
+	    INNER JOIN movie_app_db.movies m ON mgf.movie_Id = m.id
+        INNER JOIN movie_app_db.genre g ON mgf.genre_Id = g.id
+        INNER JOIN movie_app_db.format f ON mgf.format_Id = f.id
         WHERE m.id =%s'''
         cursor.execute(query=query, args=movie_id)
         movie = cursor.fetchone()
